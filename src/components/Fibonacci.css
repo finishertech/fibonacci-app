@@ -1,0 +1,52 @@
+.Fibonacci-input,
+.Fibonacci-operations,
+.Fibonacci-result {
+  margin: 5px;
+}
+
+.Fibonacci-numbers,
+.Fibonacci-input,
+.Fibonacci-operations {
+  min-width: 90%;
+  font-size: calc(10px + 1vmin);
+  border: 3px gray solid;
+  background-color: black;
+}
+
+.Fibonacci-operations-helper {
+  height: 3em;
+  color: white;
+}
+
+.Fibonacci-input,
+.Fibonacci-operations {
+  padding: 10px;
+}
+
+.Fibonacci-result {
+  height: 50px;
+  color: white;
+}
+
+.Fibonacci-input input {
+  min-width: 320px;
+}
+
+.Fibonacci-numbers button {
+  width: 100px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.Fibonacci-number {
+  font-size: 45px;
+  color: yellow;
+}
+
+.Fibonacci-graph {
+  border: 3px gray solid;
+  background-color: black;
+  height: 300px;
+  margin-bottom: 5px;
+  color: white;
+}

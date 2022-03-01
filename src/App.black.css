@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  background-color: black;
+  color: white;
+  height: 100vh;
+  display: grid;
+  grid:
+    "header" auto
+    "main" 1fr
+    "footer" auto
+    / 1fr;
+  gap: 8px;
+}
+
+.App-header {
+  grid-area: header;
+}
+
+.App-main {
+  grid-area: main;
+  margin: 20px;
+}
+
+.App-foooter {
+  grid-area: footer;
+}
+
+.App-footer .title {
+  font-style: italic;
+}
+
+.App-header, .App-main, .App-footer {
+  justify-content: center;
+  align-content: center;
+}
+
+.App-header, .App-footer {
+  margin: 2vh;
+}
+
+nav button {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: inline;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav .active {
+  text-decoration: underline;
+}
+
+a {
+  color: white;
+}
