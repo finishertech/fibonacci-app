@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fibonacci-app/static/css/main.724e4647.css",
-    "main.js": "/fibonacci-app/static/js/main.afd3b81f.js",
+    "main.js": "/fibonacci-app/static/js/main.56031236.js",
     "static/media/logo.gif": "/fibonacci-app/static/media/logo.dac2f712017a7fce264c.gif",
     "index.html": "/fibonacci-app/index.html",
     "static/media/getFetch.cjs": "/fibonacci-app/static/media/getFetch.c780682470504fffbd04.cjs",
     "main.724e4647.css.map": "/fibonacci-app/static/css/main.724e4647.css.map",
-    "main.afd3b81f.js.map": "/fibonacci-app/static/js/main.afd3b81f.js.map"
+    "main.56031236.js.map": "/fibonacci-app/static/js/main.56031236.js.map"
   },
   "entrypoints": [
     "static/css/main.724e4647.css",
-    "static/js/main.afd3b81f.js"
+    "static/js/main.56031236.js"
   ]
 }
