@@ -1,0 +1,6 @@
+= Fibonacci App
+
+Open https://finisher.tech/fibonacci-app and see this app in action!
+
+link:technical.pt.adoc[Technical details] (only in portuguese at this
+moment).
