@@ -1,7 +1,16 @@
+:root {
+--app-background-color: black;
+--app-color: white;
+--app-header-footer-background-color: dimgray;
+--nav-button-background-color: inherit;
+--a-color: white;
+}
+
 .App {
   text-align: center;
   font-size: calc(10px + 2vmin);
-  background-color: #dfdfdf;
+  background-color: var(--app-background-color);
+  color: var(--app-color);
   height: 100vh;
   display: grid;
   grid:
@@ -35,11 +44,12 @@
 }
 
 .App-header, .App-footer {
+  background-color: var(--app-header-footer-background-color);
   margin: 2vh;
 }
 
 nav button {
-  background-color: transparent;
+  background-color: var(--nav-button-background-color);
   border: none;
   color: inherit;
   cursor: pointer;
@@ -58,5 +68,5 @@ nav .active {
 }
 
 a {
-  color: inherit;
+  color: var(--a-color);
 }

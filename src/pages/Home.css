@@ -3,7 +3,10 @@
 }
 
 .Home-content img {
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
+  border-radius: 50%;
 }

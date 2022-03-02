@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./App.css";
@@ -13,6 +13,33 @@ function App() {
   const nextLanguage = { en: "Português", pt: "English" };
   const appTitle = t("title");
 
+  const [currentTheme, setCurrentTheme] = useState("Dark");
+  const themes = useMemo(
+    () => [
+      {
+        name: "Dark",
+        attributes: {
+          appBackgroundColor: "black",
+          appColor: "white",
+          appHeaderFooterBackgroundColor: "dimgray",
+          navButtonBackgroundColor: "inherit",
+          aColor: "white",
+        },
+      },
+      {
+        name: "Light",
+        attributes: {
+          appBackgroundColor: "#dfdfdf",
+          appColor: "inherit",
+          appHeaderFooterBackgroundColor: "white",
+          navButtonBackgroundColor: "transparent",
+          aColor: "inherit",
+        },
+      },
+    ],
+    []
+  );
+
   useEffect(() => {
     i18n.changeLanguage(currentLanguage);
   }, [currentLanguage, i18n]);
@@ -20,6 +47,27 @@ function App() {
   useEffect(() => {
     document.title = appTitle;
   }, [appTitle]);
+
+  useEffect(() => {
+    const attributes = themes.find((t) => t.name === currentTheme).attributes;
+    document.documentElement.style.setProperty(
+      "--app-background-color",
+      attributes.appBackgroundColor
+    );
+    document.documentElement.style.setProperty(
+      "--app-color",
+      attributes.appColor
+    );
+    document.documentElement.style.setProperty(
+      "--app-header-footer-background-color",
+      attributes.appHeaderFooterBackgroundColor
+    );
+    document.documentElement.style.setProperty(
+      "--nav-button-background-color",
+      attributes.navButtonBackgroundColor
+    );
+    document.documentElement.style.setProperty("--a-color", attributes.aColor);
+  }, [themes, currentTheme]);
 
   return (
     <div className="App">
@@ -35,6 +83,14 @@ function App() {
           >
             {nextLanguage[currentLanguage]}
           </button>
+          {" | "}
+          <button
+            onClick={() =>
+              setCurrentTheme(currentTheme === "Dark" ? "Light" : "Dark")
+            }
+          >
+            {themes[themes.findIndex((t) => t.name === currentTheme)].name}
+          </button>
         </nav>
       </header>
       <div className="App-main">
@@ -44,7 +100,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
-      <div className="App-Footer">
+      <div className="App-footer">
         <div className="title">
           {t("developed-by")}{" "}
           <Link to="/about">
