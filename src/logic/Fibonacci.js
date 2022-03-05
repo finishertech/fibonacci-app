@@ -1,3 +1,5 @@
+import { randomInt } from "./Util"
+
 // TODO: if we want more than this quantity of elements,
 //       it's needed to change the fibonacci function implementation (to use BigDecimal)
 export const fiboSeqInitialLength = 79
@@ -50,4 +52,8 @@ export default function fibonacci(number) {
         high = fibo
     } while (count++ < number)
     return fibo
+}
+
+export function randomToMaxFiboNumber() {
+    return randomInt(maxFiboNumber)
 }

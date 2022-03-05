@@ -1,67 +1,51 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import "./Fibonacci.css";
 import {
   fiboSeq,
   maxFiboNumber,
   lastFiboNumberBefore,
   firstFiboNumberAfter,
+  randomToMaxFiboNumber,
 } from "../logic/Fibonacci";
-import { randomInt, numberWithCommas } from "../logic/Util";
-import { isMobile } from "react-device-detect";
+import { numberWithCommasIntl } from "../logic/Util";
 import { useTranslation } from "react-i18next";
+import NumberInput from "./NumberInput";
 
-const FibonacciNumbers = () => {
-  const [number, setNumber] = useState(0);
-  const [result, setResult] = useState({});
-  const [consoleLog, setConsoleLog] = useState(false);
-  const [incDecFactor, setIncDecFactor] = useState("1");
-  const { t, i18n } = useTranslation();
+const generateRandom = (inputRef) => {
+  const random = randomToMaxFiboNumber();
+  console.log(`generateRandom: random number (${random}) was generated`);
+  inputRef.current?.setInputText("" + random, true);
+};
 
-  const inputRef = useRef(null);
-
-  const numberWithCommasIntl = useCallback(
-    (n) => {
-      const result = numberWithCommas(n);
-      return i18n.language === "pt" ? result.replace(/,/g, ".") : result;
-    },
-    [i18n.language]
+const FibonacciInput = ({ inputRef, t, i18n, number, setNumber }) => {
+  return (
+    <NumberInput
+      ref={inputRef}
+      className="Fibonacci-input"
+      initialValue={"" + number}
+      setNumber={setNumber}
+      isInvalid={useCallback(
+        (n) => n < 0 || n > maxFiboNumber,
+        []
+      )}
+      placeholder={`${t("write-a-number-between-0-and")} ${numberWithCommasIntl(
+        i18n,
+        maxFiboNumber
+      )}`}
+    >
+      <button onClick={() => generateRandom(inputRef)}>{t("random")}</button>
+    </NumberInput>
   );
+};
 
-  useEffect(() => {
-    if (consoleLog) {
-      console.log("Console log was turned on");
-      console.log(`fiboSeq.length: ${fiboSeq.length}`);
-      console.log(`maxFiboNumber: ${maxFiboNumber}`);
-    } else {
-      console.log(
-        "Console log was turned off. Click the <Turn log on> button to see log messages"
-      );
-    }
-  }, [consoleLog]);
-
-  useEffect(() => {
-    consoleLog &&
-      console.log(`Increment/Decrement is set to "by ${incDecFactor}"`);
-  }, [consoleLog, incDecFactor]);
-
-  useEffect(() => {
-    if (number >= 0) {
-      if (number <= maxFiboNumber) {
-        inputRef.current.value = number;
-        const index = fiboSeq.indexOf(number);
-        setResult({
-          isFibo: index >= 0,
-          message: `${numberWithCommasIntl(number)}`,
-          number,
-          index,
-        });
-      }
-    } else {
-      setResult({ isFibo: false, message: "Invalid number!" });
-    }
-  }, [number, numberWithCommasIntl]);
+const FibonacciOperations = ({ t, i18n, number, setNumber, result, inputRef }) => {
+  const [incDecFactor, setIncDecFactor] = useState("1");
 
   const byFibo = useCallback(() => incDecFactor === "Fibo", [incDecFactor]);
+
+  useEffect(() => {
+    console.log(`FibonacciOperations: Increment/Decrement was set to "by ${incDecFactor}"`);
+  }, [incDecFactor]);
 
   const incDecFactorNumber = useCallback(
     () => parseInt(incDecFactor.replace(/[,.]/g, "")),
@@ -70,34 +54,26 @@ const FibonacciNumbers = () => {
 
   const increment = useCallback(() => {
     if (!byFibo()) {
+      console.log(`FibonacciOperations: increment ${number} by ${incDecFactorNumber()} was called`);
       setNumber(number + incDecFactorNumber());
     } else if (number <= maxFiboNumber) {
-      setNumber(firstFiboNumberAfter(number));
+      const value = firstFiboNumberAfter(number);
+      console.log(`FibonacciOperations: next fibo value is ${value}`);
+      setNumber(value);
     }
-  }, [number, byFibo, incDecFactorNumber]);
+  }, [number, byFibo, incDecFactorNumber, setNumber]);
 
   const decrement = useCallback(() => {
     if (!byFibo()) {
+      console.log(`FibonacciOperations: decrementing ${number} by ${incDecFactorNumber()} was called`);
       const n = number - incDecFactorNumber();
       setNumber(n > 0 ? n : 0);
     } else if (number > 0) {
-      setNumber(lastFiboNumberBefore(number));
+      const value = lastFiboNumberBefore(number);
+      console.log(`FibonacciOperations: previous fibo value is ${value}`);
+      setNumber(value);
     }
-  }, [number, byFibo, incDecFactorNumber]);
-
-  const onChange = (event) => {
-    const value = parseInt(event.target.value);
-    setNumber(
-      !isNaN(value) && value >= 0 && value <= maxFiboNumber ? value : -1
-    );
-  };
-
-  const generateRandom = useCallback(() => {
-    const randomNumber = randomInt();
-    consoleLog && console.log(`generating a random number (${randomNumber})`);
-    inputRef.current.value = randomNumber;
-    setNumber(randomNumber);
-  }, [consoleLog]);
+  }, [number, byFibo, incDecFactorNumber, setNumber]);
 
   const toogleIncDecOperation = useCallback(() => {
     const incDecFactors = ["1", "10", "100", "1,000", "10,000", "Fibo"].map(
@@ -115,12 +91,12 @@ const FibonacciNumbers = () => {
     const handleKeyDown = (e) => {
       switch (e.key.toLowerCase()) {
         case "r":
-          generateRandom();
+          generateRandom(inputRef);
           break;
-        case "+":
+        case "i":
           increment();
           break;
-        case "-":
+        case "d":
           decrement();
           break;
         case "t":
@@ -132,37 +108,10 @@ const FibonacciNumbers = () => {
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [decrement, generateRandom, increment, toogleIncDecOperation]);
+  }, [decrement, increment, toogleIncDecOperation, inputRef]);
 
-  const FibonacciInput = () => {
-    return (
-      <div className="Fibonacci-input">
-        <input
-          placeholder={`${t(
-            "write-a-number-between-0-and"
-          )} ${numberWithCommasIntl(maxFiboNumber)}`}
-          onChange={onChange}
-          ref={inputRef}
-        ></input>
-        <button onClick={generateRandom}>{t("random")}</button>
-      </div>
-    );
-  };
-
-  const FibonacciResult = () => {
-    return (
-      <div
-        className={`Fibonacci-result${
-          result.isFibo ? " Fibonacci-number" : ""
-        }`}
-      >
-        {result.message}
-      </div>
-    );
-  };
-
-  const FibonacciOperations = () => {
-    return (
+  return (
+    <>
       <div className="Fibonacci-operations">
         <button
           onClick={increment}
@@ -174,17 +123,7 @@ const FibonacciNumbers = () => {
           -
         </button>
         <button onClick={toogleIncDecOperation}>{incDecFactor}</button>
-        {!isMobile && (
-          <button onClick={() => setConsoleLog(!consoleLog)}>
-            Turn log {consoleLog ? "off" : "on"}
-          </button>
-        )}
       </div>
-    );
-  };
-
-  const FibonacciOperationsHelper = () => {
-    return (
       <div className="Fibonacci-operations-helper">
         {!byFibo() ? (
           <>
@@ -200,17 +139,75 @@ const FibonacciNumbers = () => {
           </>
         )}
       </div>
-    );
-  };
+    </>
+  );
+};
 
-    return (
-      <div className="Fibonacci-numbers">
-        <FibonacciInput />
-        <FibonacciResult />
-        <FibonacciOperations />
-        <FibonacciOperationsHelper />
-      </div>
-    );
+const FibonacciResult = ({ result }) => {
+  return (
+    <div
+      className={`Fibonacci-result${result.isFibo ? " Fibonacci-number" : ""}`}
+    >
+      {result.message}
+    </div>
+  );
+};
+
+const FibonacciNumbers = () => {
+  const [number, setNumber] = useState(0);
+  const [result, setResult] = useState({});
+  const { t, i18n } = useTranslation();
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    console.log(`FibonacciNumbers: useEffect-1`);
+    console.log(`FibonacciNumbers: fiboSeq.length: ${fiboSeq.length}`);
+    console.log(`FibonacciNumbers: maxFiboNumber: ${maxFiboNumber}`);
+  }, []);
+
+  useEffect(() => {
+    if (number >= 0) {
+      if (number <= maxFiboNumber) {
+        inputRef.current?.setInputText("" + number);
+        const index = fiboSeq.indexOf(number);
+        setResult({
+          isFibo: index >= 0,
+          message: `${numberWithCommasIntl(i18n, number)}`,
+          number,
+          index,
+        });
+      } else {
+        setResult({
+          isFibo: false,
+          message: `Number is above ${maxFiboNumber}!`,
+        });
+      }
+    } else {
+      setResult({ isFibo: false, message: "Invalid number!" });
+    }
+    console.log("FibonacciNumbers: useEffect-2")
+  }, [number, i18n]);
+
+  return (
+    <div className="Fibonacci-numbers">
+      <FibonacciInput
+        inputRef={inputRef}
+        t={t}
+        i18n={i18n}
+        number={number}
+        setNumber={setNumber}
+      />
+      <FibonacciResult result={result} />
+      <FibonacciOperations
+        t={t}
+        i18n={i18n}
+        number={number}
+        setNumber={setNumber}
+        result={result}
+      />
+    </div>
+  );
 };
 
 export default FibonacciNumbers;
