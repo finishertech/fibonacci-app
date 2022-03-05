@@ -20,8 +20,10 @@ endif::[]
 :uri-app-github: https://github.com/finishertech/fibonacci-app
 :uri-app-github-license: https://github.com/finishertech/fibonacci-app/blob/main/LICENSE
 :uri-app-github-gh-pages: https://github.com/finishertech/fibonacci-app/tree/gh-pages
+:uri-app-github-docs-build: https://github.com/finishertech/fibonacci-app/blob/main/docs/build.sh
 :uri-paulojeronimo: https://paulojeronimo.com
 :uri-paulojeronimo-youtube-fibonacci: https://www.youtube.com/playlist?list=PL3jVhh9mXmz_-Jvmt-dUK1gEs2u46B5SM
+:uri-paulojeronimo-asciidoc: https://paulojeronimo.com/asciidoc-e-asciidoctor
 :uri-finishertech: https://finisher.tech
 :uri-finishertech-mentoria: https://finisher.tech/mentoria.pdf
 :uri-cra: https://create-react-app.dev/
@@ -41,6 +43,8 @@ endif::[]
 :uri-docker: https://www.docker.com/
 :uri-styled-components: https://styled-components.com/
 :uri-viacep: https://viacep.com.br/
+:uri-p5js: https://p5js.org/
+:uri-d3js: https://d3js.org/
 
 // Attributes
 :PauloJeronimo: {uri-paulojeronimo}[Paulo Jerônimo^]
@@ -51,12 +55,12 @@ endif::[]
 // Text starts here
 *O aplicativo web "{uri-app}[Fibonacci App^]", desenvolvido por
 {PauloJeronimo}, tem o intuito de apresentar a {SerieDeFibonacci}, para
-o público alvo da {uri-finishertech-mentoria}[mentoria da
+o público alvo da {uri-finishertech-mentoria}[mentoria da startup
 Finisher.Tech^], de uma forma programável (em
 <<javascript-e-react,JavaScript e React>>)*.
-<<detalhes-tecnicos>> de programação, que são colocados em prática no
-dia a dia da construção de aplicativos da {FinisherTech}, são
-apresentados nesse aplicativo.
+<<detalhes-tecnicos>> de programação, colocados em prática no dia a dia
+da construção de aplicativos dessa startup, são apresentados nesse
+aplicativo.
 
 [.text-center]
 Este documento que você está lendo foi gerado em {localdate}. +
@@ -82,37 +86,37 @@ Git: um completo (e privado) e outro público.
 
 [[repo-completo]]
 O repositório completo: ::
-É utilizado pelos desenvolvedores da {FinisherTech} e seus mentorados.
+É utilizado pelos desenvolvedores e mentorados da {FinisherTech}.
 Nele estão os *commits mais granulares* realizados nessa aplicação.
 Contudo, tanto esse repositório quanto o público contemplam os
 <<detalhes-tecnicos>> descritos abaixo. +
-Essa é uma das formas que usamos para _atrair desenvolvedores
-interessados em nossos projetos_ a entrarem para nossa equipe.
+Essa é uma das formas usadas pela startup para _atrair desenvolvedores
+interessados em seus projetos_ de forma que eles entrem para sua equipe.
 Esse repositório completo inclui, também, _branches_ com alternativas
 de soluções ou algoritmos.
 
 [[repo-publico]]
-O {repositorio-publico}: ::
+O {repositorio-publico} ({uri-app-github}): ::
 *Contempla commits menos granulares* que talvez sejam (ou serão)
 explicados em vídeos disponíveis nos canais
 {uri-finishertech-youtube}[Finisher.Tech^] e
 {uri-saudeecripto-youtube}[Saúde e Cripto] no YouTube.
 
-Veja a <<todo,lista de funcionalidades>> que serão disponibilizadas em
+Veja a <<todo,lista das funcionalidades>> que serão disponibilizadas em
 próximos commits no {repositorio-publico} dessa aplicação.
 
 <<<
 [[detalhes-tecnicos]]
 == Detalhes Técnicos
 
-Estes são assuntos cobertos durante a construção {uri-app}[dessa
+Estes são os assuntos cobertos durante a construção {uri-app}[dessa
 aplicação^] e que já estão disponíveis em commits disponíveis em seu
-{repositorio-publico}.
+{repositorio-publico}:
 
 . Construção e otimização de algoritmos:
 .. Implementação não recursiva da {SerieDeFibonacci}.
 ... Várias outras implementações (recursivas ou não) estão
-<<repo-completo,repositório completo>>).
+<<repo-completo,repositório completo>>.
 .. Busca dos números de Fibonacci que são anterior ou posterior a um
 número qualquer.
 . [[javascript-e-react]] Desenvolvimento em *JavaScript e
@@ -125,21 +129,23 @@ número qualquer.
 .. Codificação de _design_ responsivo e uso de {uri-css-grid-layout}[CSS
 Grid Layout^].
 .. Codificação de páginas e componentes em React.
-.. Uso intenso de {uri-react-hooks}[React Hooks^]: _useState_,
+.. Uso de {uri-react-hooks}[React Hooks^]: _useState_,
 _useEffect_, _useCallback_, _useMemo_, etc.
 .. Uso do {uri-react-router}[React Router^] (em sua versão 6).
 .. Uso do {uri-react-device-detect}[react-device-detect^] para detecção
 de dispositivos e adequação desse app a dispositivos móveis.
 .. Internacionalização utilizando o {uri-react-i18next}[react-i18next^].
-.. Seleção de tema _light_ ou _dark_ através de ajuste dinâmico de
+.. Seleção de temas (_Light_ ou _Dark_) através de ajuste dinâmico de
   {uri-css-custom-properties}[CSS Custom Properties^].
-.. Criação de componentes específicos que separam as funcionalidades de
+.. Criação de componentes específicos para separar as funcionalidades de
 internacionalização e de seleção de tema.
 . Deploy em produção:
 .. Feito no {uri-github-pages}[GitHub Pages^] através do _package_
 {uri-gh-pages-npm}[gh-pages].
 . Documentação:
-.. Uso do {uri-asciidoctor}[Asciidoctor^] e do {uri-docker}[Docker].
+.. {uri-paulojeronimo-asciidoc}[No formato AsciiDoc^].
+.. {uri-app-github-docs-build}[Build^] através de Bash,
+{uri-asciidoctor}[Asciidoctor^] e {uri-docker}[Docker].
 .. Ajustada para a visualização em diferentes formatos (_backends_):
 HTML, PDF e GitHub.
 
@@ -180,13 +186,16 @@ que estará acessível (para leitura) para todos.
 usuário específico.
 *** Um usuário não poderá editar as descrições associadas a números
 cadastros por outros usuários.
-** Desenhar a espiral de Fibonacci (utilizando o p5.js) conforme a
-navegação do usuário pelos números da série na página Numbers.
+** Desenhar a espiral de Fibonacci (com o {uri-p5js}[p5.js] ou o
+{uri-d3js}[d3.js]) conforme a navegação do usuário pelos números da
+série na página Numbers.
+*** Esse desenho deverá ser interativo (obedecendo a navegação do
+usuário nos números da série).
 ** Possibilitar que o usuário se registre utilizando seu email ou
 telefone.
 *** Se o usuário for brasileiro e informar um CEP, o aplicativo
 consulará o {uri-viacep}[ViaCEP] para auxiliar o usuário a entrar com
 seu endereço completo.
 ** Exigir o login do usuário para que ele possa registrar seus números.
-*** Utilizar JWT para autencição do usuário e, também, OAuth para
+*** Utilizar JWT para autenticação do usuário e, também, OAuth para
 possibilitar login social.

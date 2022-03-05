@@ -4,6 +4,6 @@
 
 Open https://finisher.tech/fibonacci-app and see this app in action!
 
-link:docs/technical.pt.adoc[Technical details] (Only in portuguese at
+link:docs/technical.pt.adoc[Technical details] (only in portuguese at
 this moment.
 _See it in {uri-html}[HTML] or link:docs/technical.pt.pdf[PDF] format)_
