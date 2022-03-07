@@ -14,7 +14,6 @@
 }
 
 .Fibonacci-operations-helper {
-  height: 3em;
   color: white;
 }
 
@@ -26,6 +25,38 @@
 .Fibonacci-result {
   height: 50px;
   color: white;
+}
+
+.Fibonacci-number-values {
+  margin-top: 5px;
+  font-size: calc(10px + 1vmin);
+  border: 3px gray solid;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.Fibonacci-number-values input {
+  margin-top: 5px;
+  min-width: 350px;
+}
+
+.Fibonacci-number-values .list {
+  margin-top: 5px;
+}
+
+.Fibonacci-number-values .item {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.Fibonacci-number-values .item div {
+  padding-left: 5px;
+}
+
+.Fibonacci-number-values .item button {
+  width: 60px;
 }
 
 .Fibonacci-input input {

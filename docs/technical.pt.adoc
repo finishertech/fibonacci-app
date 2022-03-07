@@ -10,9 +10,10 @@ endif::[]
 ifdef::backend-html5[]
 :toc: macro
 :nofooter:
+:stem: latexmath
 endif::[]
 // GitHub specific
-ifdef::backend-github[]
+ifdef::env-github[]
 endif::[]
 
 // URIs
@@ -24,6 +25,8 @@ endif::[]
 :uri-paulojeronimo: https://paulojeronimo.com
 :uri-paulojeronimo-youtube-fibonacci: https://www.youtube.com/playlist?list=PL3jVhh9mXmz_-Jvmt-dUK1gEs2u46B5SM
 :uri-paulojeronimo-asciidoc: https://paulojeronimo.com/asciidoc-e-asciidoctor
+:uri-paulojeronimo-blockchain: https://www.youtube.com/playlist?list=PL3jVhh9mXmz_FvGpXNvAydlg_vxVaJj1V
+:uri-paulojeronimo-ethereum: https://www.youtube.com/playlist?list=PL3jVhh9mXmz8KSba2NOENx_8qb58Ws7hr
 :uri-finishertech: https://finisher.tech
 :uri-finishertech-mentoria: https://finisher.tech/mentoria.pdf
 :uri-cra: https://create-react-app.dev/
@@ -45,19 +48,24 @@ endif::[]
 :uri-viacep: https://viacep.com.br/
 :uri-p5js: https://p5js.org/
 :uri-d3js: https://d3js.org/
+:uri-katex: https://katex.org
+:uri-react-katex: https://github.com/MatejBransky/react-katex
+:uri-firebase: https://firebase.google.com/
+:uri-supabase: https://supabase.com/
 
 // Attributes
 :PauloJeronimo: {uri-paulojeronimo}[Paulo Jerônimo^]
 :FinisherTech: {uri-finishertech}[Finisher.Tech^]
-:SerieDeFibonacci: {uri-paulojeronimo-youtube-fibonacci}[Série de Fibonacci^]
+:serieDeFibonacci: <<serie-de-fibonacci,série de Fibonacci>>
 :repositorio-publico: {uri-app-github}[repositório público^]
+:mentorados: {uri-finishertech-mentoria}[mentorados^]
 
 // Text starts here
 *O aplicativo web "{uri-app}[Fibonacci App^]", desenvolvido por
-{PauloJeronimo}, tem o intuito de apresentar a {SerieDeFibonacci}, para
-o público alvo da {uri-finishertech-mentoria}[mentoria da startup
-Finisher.Tech^], de uma forma programável (em
-<<javascript-e-react,JavaScript e React>>)*.
+{PauloJeronimo}, tem o intuito de apresentar a {serieDeFibonacci} (e
+operações que fazem uso de seus números) para o público alvo da
+{uri-finishertech-mentoria}[mentoria da startup Finisher.Tech^], de uma
+forma programável (em <<javascript-e-react,JavaScript e React>>)*.
 <<detalhes-tecnicos>> de programação, colocados em prática no dia a dia
 da construção de aplicativos dessa startup, são apresentados nesse
 aplicativo.
@@ -71,22 +79,56 @@ ifdef::backend-html5,backend-pdf[]
 toc::[]
 endif::[]
 
+[[serie-de-fibonacci]]
+== A série de Fibonacci
+
+É esta série de números aqui:
+
+[.text-center]
+*0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...*
+
+Matematicamente, ela é representada por essa função recursiva:
+
+ifdef::backend-html5[]
+ifndef::env-github[]
+[.text-center]
+stem:[
+\begin{aligned}
+f(x)=\begin{cases}
+x & x = 0, 1\\
+f(x -2) + f(x - 1) & x > 1\\
+\end{cases}
+\end{aligned}
+]
+endif::[]
+endif::[]
+ifdef::backend-pdf,env-github[]
+image::fibonacci.svg[align="center",pdfwidth=50%]
+endif::[]
+
+Aqui está uma {uri-paulojeronimo-youtube-fibonacci}[playlist com vídeos
+muito interessantes^] que explicam a aplicação desta série em diversas
+áreas.
+
+<<<
 == Licença e código fonte
 
 *{uri-app-github}[O aplicativo "Fibonacci App" é _open source_] e
 distribuído sob a*
-ifdef::backend-github[]
-*link:LICENSE[licença MIT].*
+ifdef::env-github[]
+*link:../LICENSE[licença MIT].*
 endif::[]
 ifdef::backend-html5,backend-pdf[]
+ifndef::env-github[]
 *{uri-app-github-license}[licença MIT^].*
+endif::[]
 endif::[]
 Seu *código fonte está inteiramente disponível* em dois repositórios
 Git: um completo (e privado) e outro público.
 
 [[repo-completo]]
 O repositório completo: ::
-É utilizado pelos desenvolvedores e mentorados da {FinisherTech}.
+É utilizado pelos desenvolvedores e {mentorados} da {FinisherTech}.
 Nele estão os *commits mais granulares* realizados nessa aplicação.
 Contudo, tanto esse repositório quanto o público contemplam os
 <<detalhes-tecnicos>> descritos abaixo. +
@@ -114,7 +156,7 @@ aplicação^] e que já estão disponíveis em commits disponíveis em seu
 {repositorio-publico}:
 
 . Construção e otimização de algoritmos:
-.. Implementação não recursiva da {SerieDeFibonacci}.
+.. Implementação não recursiva da {serieDeFibonacci}.
 ... Várias outras implementações (recursivas ou não) estão
 <<repo-completo,repositório completo>>.
 .. Busca dos números de Fibonacci que são anterior ou posterior a um
@@ -139,6 +181,8 @@ de dispositivos e adequação desse app a dispositivos móveis.
   {uri-css-custom-properties}[CSS Custom Properties^].
 .. Criação de componentes específicos para separar as funcionalidades de
 internacionalização e de seleção de tema.
+.. Desenho da função Fibonacci usando o {uri-katex}[Katex^] e
+{uri-react-katex}[react-katex^].
 . Deploy em produção:
 .. Feito no {uri-github-pages}[GitHub Pages^] através do _package_
 {uri-gh-pages-npm}[gh-pages].
@@ -146,8 +190,8 @@ internacionalização e de seleção de tema.
 .. {uri-paulojeronimo-asciidoc}[No formato AsciiDoc^].
 .. {uri-app-github-docs-build}[Build^] através de Bash,
 {uri-asciidoctor}[Asciidoctor^] e {uri-docker}[Docker].
-.. Ajustada para a visualização em diferentes formatos (_backends_):
-HTML, PDF e GitHub.
+.. Ajustada para a visualização em diferentes formatos (HTML, PDF) e no
+ambiente do GitHub (`env-github`).
 
 <<<
 [[execucao-local]]
@@ -174,14 +218,15 @@ aplicação!
 == TODO
 
 * *_Refactorings_*:
-** Separar os compomentes em `FibonacciNumbers.js` em diferentes
-arquivos e utilizar o _useContext_.
+** +++<del>+++Separar os componentes em `FibonacciNumbers.js` em
+diferentes arquivos e utilizar o _useContext_+++</del>+++ (_Feito_).
 ** Utilizar o {uri-styled-components}[Styled Components].
 ** Melhorar o _design_ do frontend (estilização no geral).
 
 * *Novas funcionalidades*:
-** Salvar os números de Fibonacci que uma pessoa utiliza em um backend
-que estará acessível (para leitura) para todos.
+** Salvar os números de Fibonacci que uma pessoa utiliza em um _backend_
+({uri-firebase}[Firebase] ou {uri-supabase}[Supabase]) que estará
+acessível (para leitura) para todos.
 *** Possibilitar a pesquisa dos números Fibonacci registrados por um
 usuário específico.
 *** Um usuário não poderá editar as descrições associadas a números
@@ -199,3 +244,22 @@ seu endereço completo.
 ** Exigir o login do usuário para que ele possa registrar seus números.
 *** Utilizar JWT para autenticação do usuário e, também, OAuth para
 possibilitar login social.
+** Acrescenter algumas rotas externas (ou que estejam em `/public`).
+Exemplos:
+*** `{uri-app}/public/technical.pt.html` <- deve
+enviar o usuário para a página `technical.pt.html` localizado na pasta
+`public` junto aos fontes do projeto. Da mesma forma,
+{uri-app}/public/xpto.json deve
+possibilitar o browser apresentar esse arquivo, caso ele exista na pasta
+`public`.
+*** {uri-app}/github <- deve redirecionar o
+usuário para o {repositorio-publico}.
+** *_Premium_ (para os {mentorados})*:
+*** Versão que altera o _backend_ para uso da
+{uri-paulojeronimo-blockchain}[Blockchain] do
+{uri-paulojeronimo-ethereum}[Ethereum].
+
+* *Bugs conhecidos:*
+** Ao se efetuar uma troca da linguagem é possível notar que o botão
+que indica qual o fator de incremento/decremento não troca de vírgula
+para ponto (ou vice-versa).

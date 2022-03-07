@@ -1,0 +1,9 @@
+.katex-fibo {
+  margin: 0 auto;
+  margin-top: 3px;
+}
+
+.katex .base {
+  background-color: darkslategray;
+  border: 3px solid darkgray;
+}
