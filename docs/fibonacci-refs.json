@@ -1,0 +1,180 @@
+[
+  {
+    "url": "https://www.mathsisfun.com/numbers/fibonacci-sequence.html",
+    "title": "The Mathematical Magic of the Fibonacci Numbers",
+    "metadata": [
+      "en",
+      [
+        "article",
+        "math"
+      ]
+    ]
+  },
+  {
+    "url": "https://r-knott.surrey.ac.uk/Fibonacci/fib.html",
+    "title": "Fibonacci Numbers and the Golden Section",
+    "metadata": [
+      "en",
+      [
+        "article",
+        "math"
+      ]
+    ]
+  },
+  {
+    "url": "https://www.investopedia.com/articles/technical/04/033104.asp",
+    "title": "Fibonacci and the Golden Ratio",
+    "metadata": [
+      "en",
+      [
+        "article",
+        "technical-analysis"
+      ]
+    ]
+  },
+  {
+    "url": "https://www.investopedia.com/ask/answers/05/fibonacciretracement.asp",
+    "title": "What Are Fibonacci Retracements and Fibonacci Ratios?",
+    "metadata": [
+      "en",
+      [
+        "article",
+        "technical-analysis"
+      ]
+    ]
+  },
+  {
+    "url": "https://www.investopedia.com/articles/trading/06/fibonacci.asp",
+    "title": "Understanding Fibonacci Numbers and Their Value as a Research Tool",
+    "metadata": [
+      "en",
+      [
+        "article",
+        "technical-analysis"
+      ]
+    ]
+  },
+  {
+    "url": "https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/technical-analysis/",
+    "title": "Technical Analysis – A Beginner’s Guide",
+    "metadata": [
+      "en",
+      [
+        "article",
+        "technical-analysis"
+      ]
+    ]
+  },
+  {
+    "url": "https://www.mathsisfun.com/numbers/fibonacci-sequence.html",
+    "title": "Fibonacci Sequence",
+    "metadata": [
+      "en",
+      [
+        "article",
+        "for-children",
+        "technical-analysis"
+      ]
+    ]
+  },
+  {
+    "url": "https://fractalkitty.com/?s=Fibonacci",
+    "title": "Fractal Kitty",
+    "metadata": [
+      "en",
+      [
+        "website",
+        "visualization",
+        "art"
+      ]
+    ]
+  },
+  {
+    "url": "https://codepen.io/jhkepa/pen/JjYmbxp",
+    "title": "CSS Grid Social Media a la Fibonacci",
+    "metadata": [
+      "en",
+      [
+        "codepen",
+        "visualization",
+        "css-only"
+      ]
+    ]
+  },
+  {
+    "url": "https://codepen.io/highslater/pen/JdEBBe",
+    "title": "Fibonacci Divs",
+    "metadata": [
+      "en",
+      [
+        "codepen",
+        "visualization",
+        "css-only"
+      ]
+    ]
+  },
+  {
+    "url": "https://codepen.io/acnorrisuk/pen/RoapxX",
+    "title": "Fibonacci Tiles",
+    "metadata": [
+      "en",
+      [
+        "codepen",
+        "visualization",
+        "css-only"
+      ]
+    ]
+  },
+  {
+    "url": "https://codepen.io/lafland/pen/ZWgLvW",
+    "title": "spiral svg line animation - golden ratio - fibonacci",
+    "metadata": [
+      "en",
+      [
+        "codepen",
+        "visualization",
+        "css-only",
+        "svg"
+      ]
+    ]
+  },
+  {
+    "url": "https://codepen.io/evertslagter/pen/rNgajg",
+    "title": "Fibonacci, Golden Spiral, SVG animation",
+    "metadata": [
+      "en",
+      [
+        "codepen",
+        "visualization",
+        "svg-only",
+        "svg"
+      ]
+    ]
+  },
+  {
+    "url": "https://codepen.io/jakealbaugh/pen/vOLpzM",
+    "title": "SVG Fibonacci Sequence / Golden Spiral",
+    "metadata": [
+      "en",
+      [
+        "codepen",
+        "visualization",
+        "svg",
+        "javascript"
+      ]
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=ztTskI4YW6g",
+    "title": "Fibonacci Spiral in JavaScript (ES6 class !): tutorial",
+    "metadata": [
+      "en",
+      [
+        "youtube",
+        "visualization",
+        "javascript",
+        "p5js"
+      ]
+    ]
+  }
+]

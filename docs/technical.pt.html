@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>O Fibonacci App: Documentação técnica</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>O Fibonacci App: Documentação técnica</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Neste documento são apresentados <a href="#detalhes-tecnicos">Detalhes Técnicos</a> relativos
+a implementação do <a href="http://finisher.tech/fibonacci-app" target="_blank" rel="noopener">Fibonacci App</a>.
+Vários desses detalhes de programação são colocados em prática no dia a
+dia da construção de aplicativos da startup <a href="https://finisher.tech" target="_blank" rel="noopener">Finisher.Tech</a>.</p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Conteúdo</div>
+<ul class="sectlevel1">
+<li><a href="#licenca-e-codigo-fonte">1. Licença e código fonte</a></li>
+<li><a href="#detalhes-tecnicos">2. Detalhes Técnicos</a></li>
+<li><a href="#execucao-local">3. Execução local</a></li>
+<li><a href="#documentacao">4. Documentação</a>
+<ul class="sectlevel2">
+<li><a href="#processos-de-geração">4.1. Processos de geração</a></li>
+</ul>
+</li>
+<li><a href="#deploy-gh-pages">5. Deploy no GitHub Pages</a></li>
+<li><a href="#todo">6. TODO</a></li>
+</ul>
+</div>
+<hr>
+<div class="paragraph text-center">
+<p><strong>Autor deste documento</strong>: <a href="http://finisher.tech/fibonacci-app/docs/#paulojeronimo" target="_blank" rel="noopener">Paulo Jerônimo</a>.<br>
+<strong>Última atualização</strong>: 2022-03-18 16:55:56 -0300.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Versões online: </dt>
+<dd>
+<p><strong>Em HTML</strong>: <a href="http://finisher.tech/fibonacci-app/docs/technical.pt.html" class="bare">http://finisher.tech/fibonacci-app/docs/technical.pt.html</a><br>
+<strong>Em PDF</strong>: <a href="http://finisher.tech/fibonacci-app/docs/technical.pt.pdf" class="bare">http://finisher.tech/fibonacci-app/docs/technical.pt.pdf</a><br></p>
+</dd>
+</dl>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="licenca-e-codigo-fonte">1. Licença e código fonte</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><a href="https://github.com/finishertech/fibonacci-app">O aplicativo "Fibonacci App" é <em>open source</em></a> e
+distribuído sob a <a href="https://github.com/finishertech/fibonacci-app/blob/main/LICENSE" target="_blank" rel="noopener">licença MIT</a>.</strong>
+Seu <strong>código fonte está inteiramente disponível</strong> em dois repositórios
+Git: um completo (e privado) e outro público.</p>
+</div>
+<div id="repo-completo" class="dlist">
+<dl>
+<dt class="hdlist1">O repositório completo: </dt>
+<dd>
+<p>É utilizado pelos desenvolvedores e <a href="https://finisher.tech/mentoria.pdf" target="_blank" rel="noopener">mentorados</a> da <a href="https://finisher.tech" target="_blank" rel="noopener">Finisher.Tech</a>.
+Nele estão os <strong>commits mais granulares</strong> realizados nessa aplicação.
+Contudo, tanto esse repositório quanto o público contemplam os
+<a href="#detalhes-tecnicos">Detalhes Técnicos</a> descritos abaixo.<br>
+Essa é uma das formas usadas pela startup para <em>atrair desenvolvedores
+interessados em seus projetos</em> de forma que eles entrem para sua equipe.
+Esse repositório completo inclui, também, <em>branches</em> com alternativas
+de soluções ou algoritmos.</p>
+</dd>
+</dl>
+</div>
+<div id="repo-publico" class="dlist">
+<dl>
+<dt class="hdlist1">O <a href="https://github.com/finishertech/fibonacci-app" target="_blank" rel="noopener">repositório público</a> (<a href="https://github.com/finishertech/fibonacci-app" class="bare">https://github.com/finishertech/fibonacci-app</a>): </dt>
+<dd>
+<p><strong>Contempla commits menos granulares</strong> que talvez sejam (ou serão)
+explicados em vídeos disponíveis nos canais
+<a href="https://www.youtube.com/channel/UCF_zVOdsT2X4nWVm2h-otVA/" target="_blank" rel="noopener">Finisher.Tech</a> e
+<a href="https://www.youtube.com/channel/UCd6n5bW_EZzBP0L8D6OcAow/">Saúde e Cripto</a> no YouTube.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Veja a <a href="#todo">lista das funcionalidades</a> que serão disponibilizadas em
+próximos commits no <a href="https://github.com/finishertech/fibonacci-app" target="_blank" rel="noopener">repositório público</a> dessa aplicação.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="detalhes-tecnicos">2. Detalhes Técnicos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Estes são os assuntos cobertos durante a construção do <a href="http://finisher.tech/fibonacci-app" target="_blank" rel="noopener">Fibonacci App</a>
+que já estão disponíveis em commits disponíveis em seu
+<a href="https://github.com/finishertech/fibonacci-app" target="_blank" rel="noopener">repositório público</a>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Construção e otimização de algoritmos:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Implementação não recursiva da <a href="fibonacci.pt.html">série de Fibonacci</a>.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Várias outras implementações (recursivas ou não) estão
+<a href="#repo-completo">repositório completo</a>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Busca dos números de Fibonacci que são anterior ou posterior a um
+número qualquer.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><a id="javascript-e-react"></a> Desenvolvimento em <strong>JavaScript e
+<a href="https://reactjs.org" target="_blank" rel="noopener">React</a></strong>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Inicialização do projeto: utilizando o <a href="https://create-react-app.dev/" target="_blank" rel="noopener">Create React App</a>
+(CRA).</p>
+</li>
+<li>
+<p>Organização estruturada das pastas do projeto.</p>
+</li>
+<li>
+<p>Implementação utilizando <em>Test Driven Development</em> (TDD) e
+<a href="https://jestjs.io/" target="_blank" rel="noopener">Jest</a>.</p>
+</li>
+<li>
+<p>Codificação de <em>design</em> responsivo e uso de <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">CSS
+Grid Layout</a>.</p>
+</li>
+<li>
+<p>Codificação de páginas e componentes em React.</p>
+</li>
+<li>
+<p>Uso de <a href="https://reactjs.org/docs/hooks-intro.html" target="_blank" rel="noopener">React Hooks</a>: <em>useState</em>,
+<em>useEffect</em>, <em>useCallback</em>, <em>useMemo</em>, etc.</p>
+</li>
+<li>
+<p>Uso do <a href="https://reactrouterdotcom.fly.dev/" target="_blank" rel="noopener">React Router</a> (em sua versão 6).</p>
+</li>
+<li>
+<p>Uso do <a href="https://github.com/duskload/react-device-detect" target="_blank" rel="noopener">react-device-detect</a> para detecção
+de dispositivos e adequação desse app a dispositivos móveis.</p>
+</li>
+<li>
+<p>Internacionalização utilizando o <a href="https://react.i18next.com/" target="_blank" rel="noopener">react-i18next</a>.</p>
+</li>
+<li>
+<p>Seleção de temas (<em>Light</em> ou <em>Dark</em>) através de ajuste dinâmico de
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties" target="_blank" rel="noopener">CSS Custom Properties</a>.</p>
+</li>
+<li>
+<p>Criação de componentes específicos para separar as funcionalidades de
+internacionalização e de seleção de tema.</p>
+</li>
+<li>
+<p>Desenho da função Fibonacci usando o <a href="https://katex.org" target="_blank" rel="noopener">Katex</a> e
+<a href="https://github.com/MatejBransky/react-katex" target="_blank" rel="noopener">react-katex</a>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deploy em produção:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Feito no <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> através do <em>package</em>
+<a href="https://www.npmjs.com/package/gh-pages">gh-pages</a>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><a href="#documentacao">Documentação</a>.</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="execucao-local">3. Execução local</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>$ npm install
+$ npm start</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="documentacao">4. Documentação</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Esse documento técnico, e todos os outros que foram gerados em
+<a href="https://github.com/finishertech/fibonacci-app/blob/main/docs" class="bare">https://github.com/finishertech/fibonacci-app/blob/main/docs</a>, são construídos de forma programática.
+O termo técnico para isso em inglês é <em><a href="https://www.writethedocs.org/guide/docs-as-code/">Docs as Code</a></em>.
+Os documentos neste projeto são:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Escritos no <a href="https://paulojeronimo.com/asciidoc-e-asciidoctor" target="_blank" rel="noopener">formato AsciiDoc</a>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Contém definições para visualização em diferentes formatos (HTML,
+PDF) e no ambiente do GitHub (<code>env-github</code>).</p>
+</li>
+<li>
+<p>A equação matemática da função Fibonacci é escrita <a href="https://latex-project.org">LaTeX</a>
+e convertida para uma imagem no formato <a href="https://www.s3.org/TR/SVG2" target="_blank" rel="noopener">SVG</a> (arquivo
+<a href="https://github.com/finishertech/fibonacci-app/blob/main/docs/images/fibonacci.svg">fibonacci.svg</a>).
+Esse arquivo é, então, usado na geração de PDFs.</p>
+</li>
+<li>
+<p>Os links referenciados nos documentos são escritos a partir de um
+arquivo escrito no formato <a href="https://yaml.org" target="_blank" rel="noopener">YAML</a> (
+<a href="https://github.com/finishertech/fibonacci-app/blob/main/docs/fibonacci-refs.yaml">fibonacci-refs.yaml</a>).
+A partir dele as referências são geradas no formato AsciiDoc.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Gerados nos formatos HTML e PDF através de um
+  <a href="https://github.com/finishertech/fibonacci-app/blob/main/docs/build.sh" target="_blank" rel="noopener">script escrito em Bash</a> que utiliza o
+<a href="https://www.docker.com/">Docker</a> para executar o <a href="https://asciidoctor.org/" target="_blank" rel="noopener">Asciidoctor</a>.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="processos-de-geração">4.1. Processos de geração</h3>
+<div class="paragraph">
+<p>Há dois processos de geração dos documentos.</p>
+</div>
+<div class="paragraph">
+<p>No <em>default</em>, sua geração é feita para o acesso via
+<a href="http://localhost:3000/fibonacci-app/docs" class="bare">http://localhost:3000/fibonacci-app/docs</a>.
+Essa URL é a padrão ao iniciar o <a href="http://finisher.tech/fibonacci-app" target="_blank" rel="noopener">Fibonacci App</a> localmente através do
+<code>npm start</code>.
+Nesse caso, o commando para geração é este:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ docs/build.sh</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Outro processo é para a atualização/ visualização dos documentos de
+forma <em>detached</em>, ou seja, sem a necessidade de o <a href="http://finisher.tech/fibonacci-app" target="_blank" rel="noopener">Fibonacci App</a> estar
+em execução, mas com um servidor HTTP em execução em
+<a href="http://localhost:3000" class="bare">http://localhost:3000</a>.
+Essa será a URL base para os documentos no caso de você executar estes
+comandos:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ docs/build.sh detached
+$ serve -s public/docs &amp;&gt; /dev/null &amp; <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Inicia um servidor HTTP local (instalado via <code>npm install
+-g serve</code>) em background.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Veja <a href="https://gist.github.com/paulojeronimo/f5d589e4e047a510e0315186aaf88fdd" target="_blank" rel="noopener">alternativas p/ execução de um
+servidor HTTP</a> utilizando diferentes linguagens de programação.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploy-gh-pages">5. Deploy no GitHub Pages</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>$ npm run deploy</pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Esse procedimento só será executado com sucesso se você possuir
+permissão para alterar a <a href="https://github.com/finishertech/fibonacci-app/tree/gh-pages" target="_blank" rel="noopener">branch gh-pages</a> da
+aplicação!
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="todo">6. TODO</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong><em>Refactorings</em></strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><del>Separar os componentes em <code>FibonacciNumbers.js</code> em
+diferentes arquivos e utilizar o <em>useContext</em></del> (<em>Feito</em>).</p>
+</li>
+<li>
+<p>Utilizar o <a href="https://styled-components.com/">Styled Components</a>.</p>
+</li>
+<li>
+<p>Melhorar o <em>design</em> do frontend (estilização no geral).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Novas funcionalidades</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Salvar os números de Fibonacci que uma pessoa utiliza em um <em>backend</em>
+(<a href="https://firebase.google.com/">Firebase</a> ou <a href="https://supabase.com/">Supabase</a>) que estará
+acessível (para leitura) para todos.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Possibilitar a pesquisa dos números Fibonacci registrados por um
+usuário específico.</p>
+</li>
+<li>
+<p>Um usuário não poderá editar as descrições associadas a números
+cadastros por outros usuários.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Desenhar a espiral de Fibonacci (com o <a href="https://p5js.org/">p5.js</a> ou o
+<a href="https://d3js.org/">d3.js</a>) conforme a navegação do usuário pelos números da
+série na página Numbers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Esse desenho deverá ser interativo (obedecendo a navegação do
+usuário nos números da série).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Possibilitar que o usuário se registre utilizando seu email ou
+telefone.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Se o usuário for brasileiro e informar um CEP, o aplicativo
+consulará o <a href="https://viacep.com.br/">ViaCEP</a> para auxiliar o usuário a entrar com
+seu endereço completo.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Exigir o login do usuário para que ele possa registrar seus números.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Utilizar JWT para autenticação do usuário e, também, OAuth para
+possibilitar login social.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Acrescenter algumas rotas externas (ou que estejam em <code>/public</code>).
+Exemplos:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="http://finisher.tech/fibonacci-app/public/technical.pt.html" class="bare">http://finisher.tech/fibonacci-app/public/technical.pt.html</a></code> &#8592; deve
+enviar o usuário para a página <code>technical.pt.html</code> localizado na pasta
+<code>public</code> junto aos fontes do projeto. Da mesma forma,
+<a href="http://finisher.tech/fibonacci-app/public/xpto.json" class="bare">http://finisher.tech/fibonacci-app/public/xpto.json</a> deve
+possibilitar o browser apresentar esse arquivo, caso ele exista na pasta
+<code>public</code>.</p>
+</li>
+<li>
+<p><a href="http://finisher.tech/fibonacci-app/github" class="bare">http://finisher.tech/fibonacci-app/github</a> &#8592; deve redirecionar o
+usuário para o <a href="https://github.com/finishertech/fibonacci-app" target="_blank" rel="noopener">repositório público</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong><em>Premium</em> (para os <a href="https://finisher.tech/mentoria.pdf" target="_blank" rel="noopener">mentorados</a>)</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Versão que altera o <em>backend</em> para uso da
+<a href="https://www.youtube.com/playlist?list=PL3jVhh9mXmz_FvGpXNvAydlg_vxVaJj1V">Blockchain</a> do
+<a href="https://www.youtube.com/playlist?list=PL3jVhh9mXmz8KSba2NOENx_8qb58Ws7hr">Ethereum</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Bugs conhecidos:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ao se efetuar uma troca da linguagem é possível notar que o botão
+que indica qual o fator de incremento/decremento não troca de vírgula
+para ponto (ou vice-versa).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

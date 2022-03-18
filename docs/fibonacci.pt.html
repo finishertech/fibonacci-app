@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>A série de Fibonacci</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./rouge-github.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>A série de Fibonacci</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>É uma das séries matemáticas mais admiradas <span class="icon"><i class="fa fa-heart"></i></span> no mundo</strong>,
+por cientistas pesquisadores e programadores (veja as <a href="#refs">Referências</a>).</p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Conteúdo</div>
+<ul class="sectlevel1">
+<li><a href="#a-serie-de-fibonacci">1. Formação</a></li>
+<li><a href="#em-javascript">2. Implementação em JavaScript e impressão de seus 10 primeiros números</a>
+<ul class="sectlevel2">
+<li><a href="#fibonacci-app">2.1. O Fibonacci App</a></li>
+</ul>
+</li>
+<li><a href="#refs">3. Referências</a></li>
+</ul>
+</div>
+<hr>
+<div class="paragraph text-center">
+<p><strong>Autor deste documento</strong>: <a href="http://finisher.tech/fibonacci-app/docs/#paulojeronimo" target="_blank" rel="noopener">Paulo Jerônimo</a>.<br>
+<strong>Última atualização</strong>: 2022-03-18 16:55:59 -0300.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Versões online: </dt>
+<dd>
+<p><strong>Em HTML</strong>: <a href="http://finisher.tech/fibonacci-app/docs/fibonacci.pt.html" class="bare">http://finisher.tech/fibonacci-app/docs/fibonacci.pt.html</a><br>
+<strong>Em PDF</strong>: <a href="http://finisher.tech/fibonacci-app/docs/fibonacci.pt.pdf" class="bare">http://finisher.tech/fibonacci-app/docs/fibonacci.pt.pdf</a><br></p>
+</dd>
+</dl>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="a-serie-de-fibonacci">1. Formação</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A série de Fibonacci é formada por estes números:</p>
+</div>
+<div class="paragraph text-center">
+<p><strong>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, &#8230;&#8203;</strong></p>
+</div>
+<div class="paragraph">
+<p>Uma representação matemática (recursiva e simplificada) de uma função
+que gere essa série é esta:</p>
+</div>
+<div class="stemblock text-center">
+<div class="content">
+\[\begin{aligned}
+f(x)=\begin{cases}
+x &amp; x &lt; 2\\
+f(x-2) + f(x-1) &amp; x &gt;= 2\\
+\end{cases}
+\end{aligned}\]
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="em-javascript">2. Implementação em JavaScript e impressão de seus 10 primeiros números</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Usando seu browser (no desktop) acesse as ferramentas do desenvolvedor
+do mesmo e execute o seguinte código:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><span class="c1">// Definição da função Fibonacci:</span>
+<span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">?</span> <span class="nx">x</span> <span class="p">:</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="c1">// Impressão dos 10 primeiros números de Fibonacci:</span>
+<span class="p">[...</span><span class="nb">Array</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">keys</span><span class="p">()].</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="o">=&gt;</span> <span class="nx">f</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Por exemplo, no Firefox essas ferramentas podem ser acessadas pelo
+<em>menu</em> <code>Tools/Browser Tools/Web Developer Tools</code>.</p>
+</div>
+<div class="paragraph">
+<p>Esta imagem apresenta o resultado da execução das linhas acima:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/fibonacci-firefox.png" alt="fibonacci firefox">
+</div>
+</div>
+<div class="paragraph">
+<p>Uma sintaxe ainda mais enxuta para se escrever a função Fibonacci,
+utilizando <em>lambda expressions</em>, é esta:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><span class="c1">// Definição da função Fibonacci:</span>
+<span class="kd">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">?</span> <span class="nx">x</span> <span class="p">:</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>Se você está usando um celular, então pode testar o código acima
+acessando, por exemplo, o <a href="https://jsitor.com" class="bare">https://jsitor.com</a>.
+Um exemplo de uso do JSitor demonstrando o código acima está no link
+<a href="https://jsitor.com/Gpf8ScuxI" class="bare">https://jsitor.com/Gpf8ScuxI</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="fibonacci-app">2.1. O Fibonacci App</h3>
+<div class="paragraph">
+<p>O <a href="http://finisher.tech/fibonacci-app" target="_blank" rel="noopener">Fibonacci App</a> é um aplicativo web, bem mais completo, que também
+implementa esta série.
+Este documento é parte de <a href="http://finisher.tech/fibonacci-app/docs" target="_blank" rel="noopener">sua documentação</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="refs">3. Referências</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Aqui está uma <a href="https://www.youtube.com/playlist?list=PL3jVhh9mXmz_-Jvmt-dUK1gEs2u46B5SM" target="_blank" rel="noopener">playlist com vídeos
+muito interessantes</a> que explicam a aplicação desta série em diversas
+áreas.</p>
+</div>
+<div class="paragraph">
+<p>Além dessa playlist, explore estes links:</p>
+</div>
+<div class="paragraph">
+<p><strong>TODO</strong>: inserir os links disponíveis em <a href="fibonacci-refs.json" class="bare">fibonacci-refs.json</a> nesta
+parte do documento.</p>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>
