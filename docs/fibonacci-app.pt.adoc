@@ -1,0 +1,118 @@
+= O Fibonacci App
+include::included/header-attributes.adoc[]
+
+ifndef::env-github[]
+include::included/paulojeronimo.uris.adoc[]
+include::included/fibonacci-app.pt.uris.adoc[]
+include::included/paulojeronimo.attributes.adoc[]
+include::included/fibonacci-app.pt.attributes.adoc[]
+
+*O {FibonacciApp} é um aplicativo web de código aberto (_open source_)
+que implementa a {serie-de-fibonacci} e demonstra
+<<recursos-de-programacao>> da linguagem JavaScript e da biblioteca
+React (dentre outros) explorados na <<mentoria,mentoria>> da
+{FinisherTech}* +
+ +
+Programado por *{PauloJeronimo}* esse _app_ também agrega algum código
+escrito por outros programadores que implementaram essa série (ou sua
+visualização gráfica) de diferentes formas.
+Há <<referencias,{n-refs} referências>> listadas neste documento.
+Dentre elas estão links para códigos que podem ter sido adaptados para a
+inclusão nesse aplicativo. +
+ +
+Esse documento <<motivacao,explica o porquê>> do {FibonacciApp} ter sido
+construído.
+
+include::included/header.pt.adoc[]
+
+<<<
+[[motivacao]]
+== Ao aprender sobre a série de Fibonacci com este app, você
+
+[[usara-numeros-da-serie-para-treinos]]
+=== Usará seu números para planejar treinos de qualidade para a sua Saúde
+
+No tocante a *Saúde*, {PauloJeronimo} utiliza números da
+{serie-de-fibonacci} para o planejamento de seus treinos físicos.
+Esses números são usados em planos de treino para o Triatlo ou para a
+Calistenia que faz.
+Educadores físicos experientes validam planos baseados em números de
+Fibonacci (como no {uri-planilha-coca-21}[vídeo da planilha CoCa
+21^]).
+
+[[passara-a-usar-retracoes-e-expansoes-de-fibo]]
+=== Passará a usar retrações e expansões de Fibonacci no Trading
+
+No _trading_ *Cripto*, cujo objetivo é aumentar sua quantidade de
+*criptomoedas*, {PauloJeronimo} utiliza {Fibonacci} como parte essencial
+de seu trabalho com *Análise Técnica*.
+Qualquer um que queira aprender esse tipo de análise deve, no mínimo,
+entender sobre <<ref-extensao-e-retracao-de-fibo,expansões e retrações
+de Fibonacci>>.
+
+[[aprendera-como-ser-um-programador-senior]]
+=== [[mentoria]] Aprenderá como ser (ou se tornar) um programador sênior
+
+Apenas os dois motivos acima já seriam suficientes, segundo
+{PauloJeronimo}, para que ele desejasse criar um _app_ básico, para o
+{SaudeECripto}, que explicasse às pessoas o mínimo sobre {Fibonacci}.
+
+Mas, além disso,
+
+. Ele disse, em {uri-meu-primeiro-video-sobre-fibonacci}[seu primeiro
+  vídeo sobre essa série^], que até o término de
+{uri-paulojeronimo-projeto-verao}[seu Projeto Verão 21/22^] ainda
+falaria muito mais sobre {Fibonacci}.
+. A {FinisherTech} precisava de uma aplicação que fosse o ponto de
+  entrada para a sua {mentoria} sobre a programação de _apps_ para a
+área de bem-estar.
+
+O {FibonacciApp} é um programa _open source_.
+Dessa forma, ele também pode ser usado para apresentar
+<<recursos-de-programacao>>.
+Vários desses recursos são os mesmos utilizados em outros aplicativos
+para a área de bem-estar desenvolvidos pela {FinisherTech}.
+Participando da {mentoria} você entenderá, através de passos bem
+elaborados e documentados em vídeos, como o {FibonacciApp} e outros
+aplicativos da {FinisherTech} são criados.
+
+<<<
+[[recursos-de-programacao]]
+== Recursos de programação
+
+Que citam as linguagens, bibliotecas, _frameworks_ e ferramentas de
+programação utilizadas na implementação do {FibonacciApp} são descritos
+no documento {technical-pt}.
+
+Tanto o {FibonacciApp} quanto a sua documentação são construídos de
+forma programável.
+O documento {technical-pt} oferece detalhes sobre isso.
+
+<<<
+[[paulojeronimo]]
+== {PJ}
+
+include::included/paulojeronimo.adoc[]
+
+[[fa-da-matematica]]
+=== Um grande fã da Matemática!
+
+Apesar de {PauloJeronimo} ter se formado em Ciência da Computação, *a
+matemática sempre foi sua paixão icon:heart[]*, tanto na escola quanto
+na universidade!
+Uma de suas metas é iniciar, aos 55 anos, uma licenciatura e um mestrado
+em Matemática para, em seu término, dar aulas para estudantes de ensino
+médio e de graduação.
+
+<<<
+[[referencias]]
+== Referências
+
+Explore as referências citadas no documento que detalha a
+{serie-de-fibonacci} e, também, os links técnicos apresentados no
+documento {technical-pt}.
+endif::env-github[]
+
+ifdef::env-github[]
+Leia o arquivo https://finisher.tech/fibonacci-app/docs/fibonacci-app.pt.pdf[]
+endif::[]

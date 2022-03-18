@@ -1,0 +1,13 @@
+include::common.uris.adoc[]
+:uri-paulojeronimo-projeto-verao: https://www.youtube.com/playlist?list=PLg9AlcFFWHhv0NKj6g5AgvU7NkbeK7alN
+:uri-saudeecripto: https://bio.link/saudeecripto
+:uri-finishertech: https://finisher.tech
+:uri-mentoria: https://finisher.tech/mentoria.pdf
+:uri-technical-details: https://github.com/finishertech/fibonacci-app/blob/main/docs/technical.pt.pdf
+:uri-meu-primeiro-video-sobre-fibonacci: https://youtu.be/HI5ZR6O-7OM
+:uri-planilha-coca-21: https://youtu.be/37OzzkX2wyM
+////
+:uri-asciidoctor: https://asciidoctor.org
+:uri-docker: https://docker.com
+:uri-paulojeronimo-asciidoc-e-asciidoctor: https://paulojeronimo.com/asciidoc-e-asciidoctor
+////

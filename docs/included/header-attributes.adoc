@@ -1,0 +1,11 @@
+:icons: font
+:idprefix:
+:idseparator: -
+:imagesdir: images
+ifndef::backend-pdf[]
+:nofooter:
+endif::[]
+:numbered:
+:source-highlighter: rouge
+:toc: macro
+:toc-title: Conteúdo

@@ -1,0 +1,2 @@
+include::common.attributes.adoc[]
+:PauloJeronimo: <<paulojeronimo>>

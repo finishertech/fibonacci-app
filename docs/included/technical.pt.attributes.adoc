@@ -1,0 +1,6 @@
+include::common.attributes.adoc[]
+:repositorio-publico: {uri-app-github}[repositório público^]
+:mentorados: {uri-finishertech-mentoria}[mentorados^]
+//:FibonacciApp: {uri-app}[Fibonacci App^]
+//:fibonacci-pt-pdf: {uri-app-docs}/fibonacci-pt.pdf[fibonacci-pt.pdf]
+//:fibonacci-app-pt-pdf: {uri-app-docs}/fibonacci-app-pt.pdf[fibonacci-app-pt.pdf]

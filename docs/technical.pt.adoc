@@ -1,128 +1,23 @@
-= Fibonacci App: Documento técnico
-:icons: font
-:numbered:
-:toc-title: Conteúdo
-// PDF specific
-ifdef::backend-pdf[]
-:toc: macro
-endif::[]
-// HTML specific
-ifdef::backend-html5[]
-:toc: macro
-:nofooter:
-:stem: latexmath
-endif::[]
-// GitHub specific
-ifdef::env-github[]
-endif::[]
+= O Fibonacci App: Documentação técnica
+include::included/header-attributes.adoc[]
 
-// URIs
-:uri-app: https://finisher.tech/fibonacci-app
-:uri-app-github: https://github.com/finishertech/fibonacci-app
-:uri-app-github-license: https://github.com/finishertech/fibonacci-app/blob/main/LICENSE
-:uri-app-github-gh-pages: https://github.com/finishertech/fibonacci-app/tree/gh-pages
-:uri-app-github-docs-build: https://github.com/finishertech/fibonacci-app/blob/main/docs/build.sh
-:uri-paulojeronimo: https://paulojeronimo.com
-:uri-paulojeronimo-youtube-fibonacci: https://www.youtube.com/playlist?list=PL3jVhh9mXmz_-Jvmt-dUK1gEs2u46B5SM
-:uri-paulojeronimo-asciidoc: https://paulojeronimo.com/asciidoc-e-asciidoctor
-:uri-paulojeronimo-blockchain: https://www.youtube.com/playlist?list=PL3jVhh9mXmz_FvGpXNvAydlg_vxVaJj1V
-:uri-paulojeronimo-ethereum: https://www.youtube.com/playlist?list=PL3jVhh9mXmz8KSba2NOENx_8qb58Ws7hr
-:uri-finishertech: https://finisher.tech
-:uri-finishertech-mentoria: https://finisher.tech/mentoria.pdf
-:uri-cra: https://create-react-app.dev/
-:uri-jest: https://jestjs.io/
-:uri-finishertech-youtube: https://www.youtube.com/channel/UCF_zVOdsT2X4nWVm2h-otVA/
-:uri-saudeecripto-youtube: https://www.youtube.com/channel/UCd6n5bW_EZzBP0L8D6OcAow/
-:uri-react: https://reactjs.org
-:uri-react-hooks: https://reactjs.org/docs/hooks-intro.html
-:uri-react-router: https://reactrouterdotcom.fly.dev/
-:uri-css-grid-layout: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
-:uri-react-i18next: https://react.i18next.com/
-:uri-css-custom-properties: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
-:uri-github-pages: https://pages.github.com/
-:uri-react-device-detect: https://github.com/duskload/react-device-detect
-:uri-gh-pages-npm: https://www.npmjs.com/package/gh-pages
-:uri-asciidoctor: https://asciidoctor.org/
-:uri-docker: https://www.docker.com/
-:uri-styled-components: https://styled-components.com/
-:uri-viacep: https://viacep.com.br/
-:uri-p5js: https://p5js.org/
-:uri-d3js: https://d3js.org/
-:uri-katex: https://katex.org
-:uri-react-katex: https://github.com/MatejBransky/react-katex
-:uri-firebase: https://firebase.google.com/
-:uri-supabase: https://supabase.com/
-
-// Attributes
-:PauloJeronimo: {uri-paulojeronimo}[Paulo Jerônimo^]
-:FinisherTech: {uri-finishertech}[Finisher.Tech^]
-:serieDeFibonacci: <<serie-de-fibonacci,série de Fibonacci>>
-:repositorio-publico: {uri-app-github}[repositório público^]
-:mentorados: {uri-finishertech-mentoria}[mentorados^]
-
-// Text starts here
-*O aplicativo web "{uri-app}[Fibonacci App^]", desenvolvido por
-{PauloJeronimo}, tem o intuito de apresentar a {serieDeFibonacci} (e
-operações que fazem uso de seus números) para o público alvo da
-{uri-finishertech-mentoria}[mentoria da startup Finisher.Tech^], de uma
-forma programável (em <<javascript-e-react,JavaScript e React>>)*.
-<<detalhes-tecnicos>> de programação, colocados em prática no dia a dia
-da construção de aplicativos dessa startup, são apresentados nesse
-aplicativo.
-
-[.text-center]
-Este documento que você está lendo foi gerado em {localdate}. +
-Seu código fonte talvez já esteja mais atualizado e disponível
-{uri-app-github}[neste link^].
-
-ifdef::backend-html5,backend-pdf[]
-toc::[]
-endif::[]
-
-[[serie-de-fibonacci]]
-== A série de Fibonacci
-
-É esta série de números aqui:
-
-[.text-center]
-*0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...*
-
-Matematicamente, ela é representada por essa função recursiva:
-
-ifdef::backend-html5[]
 ifndef::env-github[]
-[.text-center]
-stem:[
-\begin{aligned}
-f(x)=\begin{cases}
-x & x = 0, 1\\
-f(x -2) + f(x - 1) & x > 1\\
-\end{cases}
-\end{aligned}
-]
-endif::[]
-endif::[]
-ifdef::backend-pdf,env-github[]
-image::fibonacci.svg[align="center",pdfwidth=50%]
-endif::[]
+include::included/technical.pt.uris.adoc[]
+include::included/technical.pt.attributes.adoc[]
 
-Aqui está uma {uri-paulojeronimo-youtube-fibonacci}[playlist com vídeos
-muito interessantes^] que explicam a aplicação desta série em diversas
-áreas.
+Neste documento são apresentados <<detalhes-tecnicos>> relativos
+a implementação do {FibonacciApp}.
+Vários desses detalhes de programação são colocados em prática no dia a
+dia da construção de aplicativos da startup {FinisherTech}.
+
+include::included/header.pt.adoc[]
 
 <<<
+[[licenca-e-codigo-fonte]]
 == Licença e código fonte
 
 *{uri-app-github}[O aplicativo "Fibonacci App" é _open source_] e
-distribuído sob a*
-ifdef::env-github[]
-*link:../LICENSE[licença MIT].*
-endif::[]
-ifdef::backend-html5,backend-pdf[]
-ifndef::env-github[]
-*{uri-app-github-license}[licença MIT^].*
-endif::[]
-endif::[]
+distribuído sob a {uri-app-github-license}[licença MIT^].*
 Seu *código fonte está inteiramente disponível* em dois repositórios
 Git: um completo (e privado) e outro público.
 
@@ -151,12 +46,12 @@ próximos commits no {repositorio-publico} dessa aplicação.
 [[detalhes-tecnicos]]
 == Detalhes Técnicos
 
-Estes são os assuntos cobertos durante a construção {uri-app}[dessa
-aplicação^] e que já estão disponíveis em commits disponíveis em seu
+Estes são os assuntos cobertos durante a construção do {FibonacciApp}
+que já estão disponíveis em commits disponíveis em seu
 {repositorio-publico}:
 
 . Construção e otimização de algoritmos:
-.. Implementação não recursiva da {serieDeFibonacci}.
+.. Implementação não recursiva da {serie-de-fibonacci}.
 ... Várias outras implementações (recursivas ou não) estão
 <<repo-completo,repositório completo>>.
 .. Busca dos números de Fibonacci que são anterior ou posterior a um
@@ -186,21 +81,70 @@ internacionalização e de seleção de tema.
 . Deploy em produção:
 .. Feito no {uri-github-pages}[GitHub Pages^] através do _package_
 {uri-gh-pages-npm}[gh-pages].
-. Documentação:
-.. {uri-paulojeronimo-asciidoc}[No formato AsciiDoc^].
-.. {uri-app-github-docs-build}[Build^] através de Bash,
-{uri-asciidoctor}[Asciidoctor^] e {uri-docker}[Docker].
-.. Ajustada para a visualização em diferentes formatos (HTML, PDF) e no
-ambiente do GitHub (`env-github`).
+. <<documentacao>>.
 
 <<<
 [[execucao-local]]
-== Execução Local
+== Execução local
 
 ....
 $ npm install
 $ npm start
 ....
+
+[[documentacao]]
+== Documentação
+
+Esse documento técnico, e todos os outros que foram gerados em
+{uri-app-github-docs}, são construídos de forma programática.
+O termo técnico para isso em inglês é _{uri-doc-as-code}[Docs as Code]_.
+Os documentos neste projeto são:
+
+. Escritos no {uri-paulojeronimo-asciidoc}[formato AsciiDoc^].
+.. Contém definições para visualização em diferentes formatos (HTML,
+PDF) e no ambiente do GitHub (`env-github`).
+.. A equação matemática da função Fibonacci é escrita {uri-latex}[LaTeX]
+e convertida para uma imagem no formato {uri-svg}[SVG^] (arquivo
+{uri-app-github-docs}/images/fibonacci.svg[fibonacci.svg]).
+Esse arquivo é, então, usado na geração de PDFs.
+.. Os links referenciados nos documentos são escritos a partir de um
+arquivo escrito no formato {uri-yaml}[YAML^] (
+{uri-app-github-docs}/fibonacci-refs.yaml[fibonacci-refs.yaml]).
+A partir dele as referências são geradas no formato AsciiDoc.
+. Gerados nos formatos HTML e PDF através de um
+  {uri-app-github-docs-build}[script escrito em Bash^] que utiliza o
+{uri-docker}[Docker] para executar o {uri-asciidoctor}[Asciidoctor^].
+
+=== Processos de geração
+
+Há dois processos de geração dos documentos.
+
+No _default_, sua geração é feita para o acesso via
+http://localhost:3000/fibonacci-app/docs.
+Essa URL é a padrão ao iniciar o {FibonacciApp} localmente através do
+`npm start`.
+Nesse caso, o commando para geração é este:
+
+....
+$ docs/build.sh
+....
+
+Outro processo é para a atualização/ visualização dos documentos de
+forma _detached_, ou seja, sem a necessidade de o {FibonacciApp} estar
+em execução, mas com um servidor HTTP em execução em
+http://localhost:3000.
+Essa será a URL base para os documentos no caso de você executar estes
+comandos:
+
+....
+$ docs/build.sh detached
+$ serve -s public/docs &> /dev/null & # <1> <2>
+....
+<1> Inicia um servidor HTTP local (instalado via `npm install
+-g serve`) em background.
+<2> Veja {uri-gist-httpd-servers}[alternativas p/ execução de um
+servidor HTTP^] utilizando diferentes linguagens de programação.
+
 
 [[deploy-gh-pages]]
 == Deploy no GitHub Pages
@@ -263,3 +207,8 @@ usuário para o {repositorio-publico}.
 ** Ao se efetuar uma troca da linguagem é possível notar que o botão
 que indica qual o fator de incremento/decremento não troca de vírgula
 para ponto (ou vice-versa).
+endif::env-github[]
+
+ifdef::env-github[]
+Leia o arquivo https://finisher.tech/fibonacci-app/docs/technical.pt.pdf[]
+endif::[]

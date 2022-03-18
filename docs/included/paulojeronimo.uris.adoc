@@ -1,0 +1,9 @@
+:uri-paulojeronimo: https://paulojeronimo.com
+:uri-paulojeronimo-saudeecripto: https://www.youtube.com/watch?v=Ij-IvHzipME
+:uri-paulojeronimo-resume: https://paulojeronimo.com/cv/en/resume.html
+:uri-paulojeronimo-cv: https://paulojeronimo.com/cv/en/
+:uri-paulojeronimo-blockchain: https://www.youtube.com/playlist?list=PL3jVhh9mXmz_FvGpXNvAydlg_vxVaJj1V
+:uri-paulojeronimo-ethereum: https://www.youtube.com/playlist?list=PL3jVhh9mXmz8KSba2NOENx_8qb58Ws7hr
+:uri-ironman: https://ironman.com
+:uri-saudeecripto-pdf: https://finisher.tech/saudeecripto.pdf
+:uri-saudeecripto-bio-link: https://bio.link/saudeecripto

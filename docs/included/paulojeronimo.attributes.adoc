@@ -1,0 +1,7 @@
+:PJ: Paulo Jerônimo
+:PJNoSaudeECripto: {uri-paulojeronimo-saudeecripto}[{PJ}^]
+:SaudeECripto: {uri-saudeecripto-bio-link}[Saúde e Cripto^]
+:Ironman: {uri-ironman}[Ironman^]
+:Blockchain: {uri-paulojeronimo-blockchain}[Blockchain^]
+:Ethereum: {uri-paulojeronimo-ethereum}[Ethereum^]
+:Fibonacci: Fibonacci

@@ -1,9 +1,15 @@
 = Fibonacci App
 
-:uri-html: https://htmlpreview.github.io/?https://github.com/finishertech/fibonacci-app/blob/main/docs/technical.pt.html
+:uri-docs: https://finisher.tech/fibonacci-app/docs
+
+:fibonacci-app-pt-pdf: {uri-docs}/fibonacci-app.pt.pdf[fibonacci-app.pt.pdf]
+:fibonacci-pt-pdf: {uri-docs}/fibonacci.pt.pdf[fibonacci.pt.pdf]
+:technical-pt-pdf: {uri-docs}/technical.pt.pdf[technical.pt.pdf]
 
 Open https://finisher.tech/fibonacci-app and see this app in action!
 
-link:docs/technical.pt.adoc[Technical details] (only in portuguese at
-this moment.
-_See it in {uri-html}[HTML] or link:docs/technical.pt.pdf[PDF] format)_
+Some documents available (_only in portuguese at this moment_):
+
+* {fibonacci-app-pt-pdf}
+* {fibonacci-pt-pdf}
+* {technical-pt-pdf}

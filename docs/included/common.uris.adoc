@@ -1,0 +1,20 @@
+ifndef::uri-app[]
+:uri-app: http://localhost:3000/fibonacci-app
+endif::[]
+ifndef::uri-app-docs[]
+:uri-app-docs: {uri-app}/docs
+endif::[]
+:uri-app-github: https://github.com/finishertech/fibonacci-app
+:uri-app-github-license: https://github.com/finishertech/fibonacci-app/blob/main/LICENSE
+:uri-app-github-gh-pages: https://github.com/finishertech/fibonacci-app/tree/gh-pages
+:uri-app-github-docs: https://github.com/finishertech/fibonacci-app/blob/main/docs
+:uri-app-github-docs-build: https://github.com/finishertech/fibonacci-app/blob/main/docs/build.sh
+:uri-app-github-docs-fibonacci-pt-pdf: https://github.com/finishertech/fibonacci-app/blob/main/docs/fibonacci.pt.pdf
+:uri-app-github-docs-fibonacci-pt-html: https://github.com/finishertech/fibonacci-app/blob/main/docs/fibonacci.pt.html
+
+:uri-app-technical-pt-pdf: https://github.com/finishertech/fibonacci-app/blob/main/docs/technical.pt.pdf
+:uri-app-fibonacci-pt-pdf: https://github.com/finishertech/fibonacci-app/blob/main/docs/fibonacci.pt.pdf
+:uri-doc-as-code: https://www.writethedocs.org/guide/docs-as-code/
+
+:uri-finishertech: https://finisher.tech
+:uri-saudeecripto: https://bio.link/saudeecripto

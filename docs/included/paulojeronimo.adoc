@@ -1,0 +1,19 @@
+*É {uri-paulojeronimo-saudeecripto}[triatleta, programador e
+_trader_^]*.
+*Acorda muito cedo, todos os dias*, para iniciar seu dia com a prática
+de seus esportivas preferidos (caminhada, corrida, ciclismo, calistenia
+e natação).
+
+*Como triatleta*, já concluiu 3 provas de {Ironman}
+({uri-saudeecripto-pdf}[veja sua história nessas provas^]). +
+*Como programador*, desenvolve software desde 1991 (veja
+{uri-paulojeronimo-resume}[seu _résumé_^] ou
+{uri-paulojeronimo-cv}[currículo completo]).
+Para o {SaudeECripto}, programa soluções que usam a {Blockchain} do
+{Ethereum} (<- _esses dois últimos links são para playlists em que ele
+fala sob esses assuntos_). +
+*Como _trader_*, utiliza retrações e projeções de {Fibonacci}, além de
+vários indicadores, para negociar criptomoedas.
+
+Os links que contém suas informações mais atuais estão em
+{uri-saudeecripto-bio-link} e {uri-paulojeronimo}.

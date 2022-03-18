@@ -1,0 +1,99 @@
+= A série de Fibonacci
+include::included/header-attributes.adoc[]
+ifdef::backend-html5[]
+:stem: latexmath
+endif::[]
+
+ifndef::env-github[]
+include::included/technical.pt.uris.adoc[]
+include::included/technical.pt.attributes.adoc[]
+
+*É uma das séries matemáticas mais admiradas icon:heart[] no mundo*,
+por cientistas pesquisadores e programadores (veja as <<refs>>).
+
+include::included/header.pt.adoc[]
+
+'''
+[[a-serie-de-fibonacci]]
+== Formação
+
+{doctitle} é formada por estes números:
+
+[.text-center]
+*0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...*
+
+Uma representação matemática (recursiva e simplificada) de uma função
+que gere essa série é esta:
+
+ifdef::backend-html5[]
+[.text-center]
+[stem]
+++++
+include::fibonacci.tex[]
+++++
+endif::[]
+ifdef::backend-pdf[]
+image::fibonacci.svg[align="center",pdfwidth=50%]
+endif::[]
+
+<<<
+[[em-javascript]]
+== Implementação em JavaScript e impressão de seus 10 primeiros números
+
+Usando seu browser (no desktop) acesse as ferramentas do desenvolvedor
+do mesmo e execute o seguinte código:
+
+[source,javascript]
+----
+// Definição da função Fibonacci:
+function f(x) { return x < 2 ? x : f(x-2) + f(x-1) }
+
+// Impressão dos 10 primeiros números de Fibonacci:
+[...Array(10).keys()].map(n => f(n))
+----
+
+Por exemplo, no Firefox essas ferramentas podem ser acessadas pelo
+_menu_ `Tools/Browser Tools/Web Developer Tools`.
+
+Esta imagem apresenta o resultado da execução das linhas acima:
+
+image::fibonacci-firefox.png[align="center",pdfwidth=60%]
+
+Uma sintaxe ainda mais enxuta para se escrever a função Fibonacci,
+utilizando _lambda expressions_, é esta:
+
+[source,javascript]
+----
+// Definição da função Fibonacci:
+const f = x => x < 2 ? x : f(x-2) + f(x-1)
+----
+
+<<<
+Se você está usando um celular, então pode testar o código acima
+acessando, por exemplo, o https://jsitor.com.
+Um exemplo de uso do JSitor demonstrando o código acima está no link
+https://jsitor.com/Gpf8ScuxI.
+
+[[fibonacci-app]]
+=== O Fibonacci App
+
+O {FibonacciApp} é um aplicativo web, bem mais completo, que também
+implementa esta série.
+Este documento é parte de {uri-app-docs}[sua documentação^].
+
+[[refs]]
+== Referências
+
+Aqui está uma {uri-paulojeronimo-youtube-fibonacci}[playlist com vídeos
+muito interessantes^] que explicam a aplicação desta série em diversas
+áreas.
+
+Além dessa playlist, explore estes links:
+
+*TODO*: inserir os links disponíveis em link:fibonacci-refs.json[] nesta
+parte do documento.
+endif::env-github[]
+
+ifdef::env-github[]
+Leia o arquivo https://finisher.tech/fibonacci-app/docs/fibonacci.pt.pdf[]
+endif::[]

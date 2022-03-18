@@ -1,0 +1,10 @@
+toc::[]
+
+'''
+[.text-center]
+*Autor deste documento*: {PauloJeronimo}. +
+*Última atualização*: {localdatetime}.
+
+Versões online: ::
+*Em HTML*: {uri-app-docs}/{html-file} +
+*Em PDF*: {uri-app-docs}/{pdf-file} +
