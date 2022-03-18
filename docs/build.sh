@@ -23,7 +23,7 @@ then
         detached) ASCIIDOCTOR_ATTRS="$ASCIIDOCTOR_ATTRS -a uri-app=http://localhost:3000";;
         production)
             touch docs/*.adoc # <- force all HTML and PDF to be regenerated
-            ASCIIDOCTOR_ATTRS="$ASCIIDOCTOR_ATTRS -a uri-app=http://finisher.tech/fibonacci-app"
+            ASCIIDOCTOR_ATTRS="$ASCIIDOCTOR_ATTRS -a uri-app=https://finisher.tech/fibonacci-app"
             ;;
     esac
 fi
